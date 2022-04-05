@@ -40,7 +40,7 @@ https://api.ivi.ru/mobileapi/catalogue/v5/?category=...&sort=pop&from=0&to=99&fi
 https://api.ivi.ru/mobileapi/catalogue/v5/?genre=...&sort=pop&from=0&to=99&fields=id,title,compilation,object_type,fake,hru,poster_originals,description,synopsis&app_version=870
 
 Поиск фильма/сериала:
-https://api.ivi.ru/mobileapi/search/v5/?query=xxx&from=0&to=99&fields=id,title,compilation,object_type,fake&app_version-870
+https://api.ivi.ru/mobileapi/search/v5/?query=xxx&from=0&to=99&fields=id,title,compilation,object_type,fake,hru,poster_originals,description,synopsis&app_version-870
 
 Получить список серий сборника:
 https://api.ivi.ru/mobileapi/videofromcompilation/v5/?id=xxx&fields=id,title,fake,poster_originals,description,synopsis&from=0&to=99&app_version=870
