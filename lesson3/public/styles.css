@@ -190,6 +190,11 @@ a:hover {
     width: 100%;
     border-radius: 10px;
     border: 1px solid blue;
+    box-sizing: border-box;
+}
+
+.genre {
+    margin-left: 10px;
 }
 
 .popup {

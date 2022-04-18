@@ -1,52 +1,65 @@
-interface ISend<T> {
+
+export interface IRequest {
     status: boolean;
-    data: T;
+    data: any;
 }
 
-export interface IGenres {
+export interface IData {
     id: number;
     title: string;
 }
 
-export interface ICategory {
-    id: number;
-    title: string;
-    genres: IGenres[];
+export interface IPoster {
+    path: string;
 }
 
 export interface ICatalog {
+    hru?: string;
     description: string;
-    id: number;
-    poster_originals: [{ path: string }];
+    id: number
+    object_type: string;
+    poster_originals: IPoster[];
     synopsis: string;
     title: string;
 }
 
+export interface IGenres extends IData {
+
+}
+
+
+export interface ICategories extends IData {
+    genres: IGenres[]
+}
+
+
 export class IviApi {
-    private async send<T>(url: string): Promise<ISend<T>> {
-        if (url) {
-            const response = await fetch(url);
-            const json = await response.json();
-            return {
-                status: true,
-                data: json.result
-            }
-        } else {
+
+    protected async _send (url: string): Promise<IRequest> {
+        try {
+        const responce = await fetch(url);
+        const json = await responce.json();
+
+        return {
+            status: true,
+            data: json.result
+        };
+        } catch {
             return {
                 status: false,
                 data: null
-            }
+            };
         }
-
     }
 
-    async getCategory(): Promise<ICategory[]> {
-        const result = await this.send<ICategory[]>('https://api.ivi.ru/mobileapi/categories/v5/?app_version=870');
-        return result.data
-    }
+     async getCategories(): Promise<ICategories[]> {
+         const result = await this._send('https://api.ivi.ru/mobileapi/categories/v5/?app_version=870');
 
-    async getCatalog(genre: number): Promise<ICatalog[]> {
-        const result = await this.send<ICatalog[]>(`https://api.ivi.ru/mobileapi/catalogue/v5/?genre=${genre}&sort=pop&from=0&to=20&fields=id,title,compilation,object_type,fake,hru,poster_originals,description,synopsis&app_version=870`);
-        return result.data;
-    }
+         return result.data;
+     }
+
+     async getCatalog(genre: number): Promise<ICatalog[]> {
+         const result = await this._send(`https://api.ivi.ru/mobileapi/catalogue/v5/?genre=${genre}&sort=pop&from=0&to=99&fields=id,title,compilation,object_type,fake,hru,poster_originals,description,synopsis&app_version=870`);
+         return result.data;
+     }
 }
