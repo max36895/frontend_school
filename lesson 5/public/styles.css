@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.application {
+    display: grid;
+    grid-template-rows: 70px 1fr 50px;
+    height: 100vh;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.ws-hidden {
+    display: none !important;
+}
+
+.header {
+    background: #333;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.header__logo-image {
+    width: 50px;
+    height: 50px;
+}
+
+.header__logo-title {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+ul {
+    list-style: none;
+}
+
+.header__nav {
+    display: flex;
+}
+
+.header__nav-item {
+    margin-left: 7px;
+}
+
+.header__nav-item:hover {
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background: #000;
+    align-items: center;
+    padding: 0 20px
+}
+
+.footer_copy {
+    color: #ccc;
+}
+
+.footer__nav {
+    display: flex;
+}
+
+.footer__nav-item {
+    margin-left: 7px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 15px;
+}
+
+.section__menu,
+.section__films {
+    background: #eaedec;
+    margin-top: 7px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .35);
+    padding: 5px 7px;
+}
+
+.section__menu {
+    border-top-right-radius: 15px;
+}
+
+.section__films {
+    background: white;
+    border-top-left-radius: 15px;
+}
+
+.section__films-content {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.section__films-filter {
+    display: flex;
+    padding: 0 15px;
+}
+
+.section__films-filter_search {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.section__films-filter_search-input {
+    border-color: #fc0;
+    border-radius: 3px 0 0 3px;
+    border-style: solid;
+    padding: 0 5px;
+}
+
+.section__films-filter_search-button {
+    background: #fc0;
+    color: #000;
+    border-width: 0;
+    padding: 2px 5px;
+    border-radius: 0 3px 3px 0;
+}
+
+.section__films-filter_search-button:hover {
+    background: #f5c400;
+}
+
+.card {
+    background: white;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
+    border-radius: 10px;
+    max-width: 250px;
+    margin: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease-in-out
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 1px 1px 9px rgba(0, 0, 0, .5);
+}
+
+.card_image {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.card_title {
+    margin: 5px;
+}
+
+.card_description {
+    margin: 0 5px;
+    flex-grow: 1;
+}
+
+.card_footer {
+    position: relative;
+    height: 35px;
+}
+
+.card_link {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px 0;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid blue;
+    box-sizing: border-box;
+}
+
+.genre {
+    margin-left: 10px;
+}
+
+.popup {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.popup_opened {
+    overflow: hidden;
+}
+
+.popup_overlay.visible {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1px);
+    background: rgba(0, 0, 0, 0.2);
+}
